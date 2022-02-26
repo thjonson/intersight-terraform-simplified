@@ -19,18 +19,9 @@ resource "intersight_vmedia_policy" "vmedia_http_iso" {
     moid = local.organization
   }
 
-  enabled       = true
+  enabled       = false
   encryption    = true
   low_power_usb = true
 
-  mappings {
-    authentication_protocol = "none"
-    device_type             = "cdd"
-    file_location           = var.httpiso.url
-    mount_protocol          = lower(element(split(":", var.httpiso.url), 0))
-    password                = var.httpiso.password
-    username                = var.httpiso.username
-    volume_name             = "IMC_DVD"
-  }
 
 }
